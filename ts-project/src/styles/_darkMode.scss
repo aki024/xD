@@ -6,14 +6,14 @@
 }
 
 .toggle-theme-wrapper span {
-  font-size: 28px;
+  font-size: 20px;
 }
 
 .toggle-theme {
   position: relative;
   display: inline-block;
-  height: 34px;
-  width: 60px;
+  height: 28px;
+  width: 52px;
 }
 
 .toggle-theme input {
@@ -33,13 +33,13 @@
 
 .slider:before {
   background-color: #fff;
-  bottom: 4px;
+  bottom: 2px;
   content: "";
-  height: 26px;
-  left: 4px;
+  height: 24px;
+  left: 2px;
   position: absolute;
   transition: 0.4s;
-  width: 26px;
+  width: 24px;
 }
 
 input:checked + .slider:before {
@@ -51,7 +51,7 @@ input:checked + .slider {
 }
 
 .slider.round {
-  border-radius: 34px;
+  border-radius: 28px;
 }
 
 .slider.round:before {

@@ -26,7 +26,7 @@ function App() {
   //STATES
 
   const ctx = useContext(ThemeContext);
-  console.log(ctx);
+  //Context
 
   useEffect(() => {
     setLoading(true);
@@ -52,7 +52,9 @@ function App() {
     };
     fetchData();
   }, [search]);
+  //EFFECTS
 
+  //STYLE KOBAS
   let style = darkMode
     ? {
         backgroundColor: ctx.dark.backgroundColor,
@@ -152,7 +154,9 @@ function App() {
             element={
               <div className="container">
                 <Nav setSearch={setSearch} setDarkMode={setDarkMode} />
-                <MovieDetail />
+                <div className="colorContain" style={style}>
+                  <MovieDetail />
+                </div>
               </div>
             }
           />
