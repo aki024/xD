@@ -1,0 +1,30 @@
+@import "./nav";
+@import "./movieCard";
+@import "./singleMovie";
+
+* {
+  padding: 0;
+  margin: 0;
+  // background-color: rgb(243, 244, 246);
+}
+
+.container {
+  height: 100%;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+}
+
+h2 {
+  margin: 6rem auto 0rem auto;
+}
+
+.movieContainer {
+  display: grid;
+  margin: 2rem 8rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

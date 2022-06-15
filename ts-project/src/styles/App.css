@@ -1,0 +1,297 @@
+.navHeader {
+  background-color: #4f46e5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navLeft {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2rem;
+  margin-left: 8rem;
+  background-color: transparent;
+}
+
+.search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid transparent;
+  background-color: #3730a3;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.2rem;
+  color: #ccc;
+  min-width: 20rem;
+}
+
+.search .searchIcon {
+  background-color: transparent;
+}
+
+.search input {
+  background-color: transparent;
+  border: 0px transparent;
+  padding: 0.2rem;
+  color: white;
+  width: 100%;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.search input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.search input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.search input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+.search input:focus::placeholder {
+  color: transparent;
+}
+
+.search input::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+.search input:-ms-input-placeholder {
+  color: #ccc;
+}
+
+.search input::-ms-input-placeholder {
+  color: #ccc;
+}
+
+.search input::placeholder {
+  color: #ccc;
+}
+
+.navRight {
+  margin-right: 9rem;
+}
+
+.nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav a {
+  list-style-type: none;
+  color: #fff;
+}
+
+.link-active {
+  border-bottom: 4px solid #878787;
+}
+
+.logo img {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
+
+.movieCard {
+  border-radius: 0.25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 99;
+}
+
+.movieCard:hover {
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  -webkit-transform: scale(105%);
+          transform: scale(105%);
+  cursor: pointer;
+}
+
+img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  z-index: -1;
+}
+
+.content {
+  padding: 1rem;
+}
+
+.title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.title h3:hover {
+  cursor: pointer;
+  color: rgba(85, 85, 221, 0.774);
+}
+
+@-webkit-keyframes scale {
+  0% {
+    -webkit-transform: scale(100%);
+            transform: scale(100%);
+    background-color: red;
+  }
+  100% {
+    -webkit-transform: scale(105%);
+            transform: scale(105%);
+    background-color: red;
+  }
+}
+
+@keyframes scale {
+  0% {
+    -webkit-transform: scale(100%);
+            transform: scale(100%);
+    background-color: red;
+  }
+  100% {
+    -webkit-transform: scale(105%);
+            transform: scale(105%);
+    background-color: red;
+  }
+}
+
+.singleMovieContainer {
+  background-size: cover;
+}
+
+.darken {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+a:hover {
+  color: #b9b9d3;
+}
+
+.movie {
+  margin: 2rem 8rem;
+  height: 70vh;
+  display: -ms-grid;
+  display: grid;
+  background-color: transparent;
+  -ms-grid-columns: 1fr 3fr;
+      grid-template-columns: 1fr 3fr;
+}
+
+.movie .poster {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0.5rem;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.movie img {
+  max-height: 100%;
+  max-width: 100%;
+  border-radius: 0.5rem;
+}
+
+.movie .description {
+  background-color: transparent;
+  margin-left: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.movie .description .title {
+  gap: 0rem;
+}
+
+.movie .description .movTitle h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  height: 100%;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+}
+
+h2 {
+  margin: 6rem auto 0rem auto;
+}
+
+.movieContainer {
+  display: -ms-grid;
+  display: grid;
+  margin: 2rem 8rem;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/*# sourceMappingURL=App.css.map */
