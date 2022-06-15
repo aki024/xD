@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Movie from "./components/Movie";
 import Nav from "./components/Nav";
 import "./styles/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MovieDetail from "./components/MovieDetail";
 import Movies from "./components/Movies";
+import { ThemeContext } from "./components/ThemeContext";
 
 type MovieObject = {
   first_air_date: string;
@@ -21,6 +22,11 @@ function App() {
   const [loading, setLoading] = useState<boolean>(true);
   const [search, setSearch] = useState<string | null>("");
   const [searchResult, setSearchResult] = useState<MovieObject[] | null>(null);
+  const [darkMode, setDarkMode] = useState<boolean>(false);
+  //STATES
+
+  const ctx = useContext(ThemeContext);
+  console.log(ctx);
 
   useEffect(() => {
     setLoading(true);
@@ -47,6 +53,16 @@ function App() {
     fetchData();
   }, [search]);
 
+  let style = darkMode
+    ? {
+        backgroundColor: ctx.dark.backgroundColor,
+        color: ctx.dark.color,
+      }
+    : {
+        backgroundColor: ctx.light.backgroundColor,
+        color: ctx.light.color,
+      };
+
   return (
     <>
       <BrowserRouter>
@@ -55,31 +71,17 @@ function App() {
             path="/"
             element={
               <div className="container">
-                <Nav setSearch={setSearch} />
-                <div className="title">
-                  <h2>
-                    {search?.length !== 0 ? "Search Results" : "Trending"}
-                  </h2>
-                  {searchResult?.length === 0 && <h2>No results found...</h2>}
-                </div>
-                {!loading && movies && !searchResult ? (
-                  <div className="movieContainer">
-                    {movies.map((movie) => {
-                      return (
-                        <Movie
-                          key={movie.id}
-                          original_title={movie.original_title}
-                          poster_path={movie.poster_path}
-                          release_date={movie.release_date}
-                          id={movie.id}
-                        />
-                      );
-                    })}
+                <Nav setSearch={setSearch} setDarkMode={setDarkMode} />
+                <div className="colorContain" style={style}>
+                  <div className="title">
+                    <h2>
+                      {search?.length !== 0 ? "Search Results" : "Trending"}
+                    </h2>
+                    {searchResult?.length === 0 && <h2>No results found...</h2>}
                   </div>
-                ) : (
-                  <div className="movieContainer">
-                    {searchResult?.map((movie) => {
-                      if (movie.media_type === "movie") {
+                  {!loading && movies && !searchResult ? (
+                    <div className="movieContainer">
+                      {movies.map((movie) => {
                         return (
                           <Movie
                             key={movie.id}
@@ -89,21 +91,37 @@ function App() {
                             id={movie.id}
                           />
                         );
-                      }
-                      if (movie.media_type === "tv") {
-                        return (
-                          <Movie
-                            key={movie.id}
-                            original_title={movie.name}
-                            poster_path={movie.poster_path}
-                            release_date={movie.first_air_date}
-                            id={movie.id}
-                          />
-                        );
-                      }
-                    })}
-                  </div>
-                )}
+                      })}
+                    </div>
+                  ) : (
+                    <div className="movieContainer">
+                      {searchResult?.map((movie) => {
+                        if (movie.media_type === "movie") {
+                          return (
+                            <Movie
+                              key={movie.id}
+                              original_title={movie.original_title}
+                              poster_path={movie.poster_path}
+                              release_date={movie.release_date}
+                              id={movie.id}
+                            />
+                          );
+                        }
+                        if (movie.media_type === "tv") {
+                          return (
+                            <Movie
+                              key={movie.id}
+                              original_title={movie.name}
+                              poster_path={movie.poster_path}
+                              release_date={movie.first_air_date}
+                              id={movie.id}
+                            />
+                          );
+                        }
+                      })}
+                    </div>
+                  )}
+                </div>
               </div>
             }
           />
@@ -111,8 +129,10 @@ function App() {
             path="/movies"
             element={
               <div className="container">
-                <Nav setSearch={setSearch} />
-                <Movies searchResult={searchResult} />
+                <Nav setSearch={setSearch} setDarkMode={setDarkMode} />
+                <div className="colorContain" style={style}>
+                  <Movies searchResult={searchResult} />
+                </div>
               </div>
             }
           />
@@ -120,8 +140,10 @@ function App() {
             path="/series"
             element={
               <div className="container">
-                <Nav setSearch={setSearch} />
-                <Movies searchResult={searchResult} />
+                <Nav setSearch={setSearch} setDarkMode={setDarkMode} />
+                <div className="colorContain" style={style}>
+                  <Movies searchResult={searchResult} />
+                </div>
               </div>
             }
           />
@@ -129,7 +151,7 @@ function App() {
             path="/show/:id"
             element={
               <div className="container">
-                <Nav setSearch={setSearch} />
+                <Nav setSearch={setSearch} setDarkMode={setDarkMode} />
                 <MovieDetail />
               </div>
             }

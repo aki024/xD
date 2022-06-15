@@ -31,6 +31,7 @@ const MovieDetail = () => {
         );
         const data = await response.json();
         const genre = await data.genres;
+        console.log(data);
         setMovie({
           background: data.backdrop_path,
           title: data.original_title,
@@ -147,6 +148,10 @@ const MovieDetail = () => {
           </section>
         </div>
       </main>
+      <div className="recommended">
+        <h1>Recommended movies</h1>
+        <div className="recommendedMovies"></div>
+      </div>
     </>
   );
 };

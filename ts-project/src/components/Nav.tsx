@@ -2,12 +2,14 @@ import React, { Dispatch, SetStateAction } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../kisspng-art-film-logo-cinema-clip-art-movie-logo-cliparts-5ab587fb2edc64.812960291521846267192.png";
+import DarkModeButton from "./DarkModeButton";
 
 interface Props {
   setSearch: Dispatch<SetStateAction<string | null>>;
+  setDarkMode: Dispatch<SetStateAction<boolean>>;
 }
 
-const Nav = ({ setSearch }: Props) => {
+const Nav = ({ setSearch, setDarkMode }: Props) => {
   const scrollToTopHandler = () => {
     window.scrollTo({
       top: 0,
@@ -56,6 +58,7 @@ const Nav = ({ setSearch }: Props) => {
               className={({ isActive }) => (isActive ? "link-active" : "link")}>
               Series
             </NavLink>
+            <DarkModeButton setDarkMode={setDarkMode} />
           </ul>
         </nav>
       </div>
