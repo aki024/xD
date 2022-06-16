@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import LoadingSpinner from "./LoadingSpinner";
+import LoadingSpinner from "./ui/LoadingSpinner";
 import Movie from "./Movie";
 
 type MovieObject = {

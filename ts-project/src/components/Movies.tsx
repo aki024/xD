@@ -56,6 +56,7 @@ const Movies = ({ searchResult }: Props) => {
                     />
                   );
                 }
+                return "";
               })}
             </div>
           </div>

@@ -23,6 +23,7 @@ function App() {
   const [search, setSearch] = useState<string | null>("");
   const [searchResult, setSearchResult] = useState<MovieObject[] | null>(null);
   const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [users, setUsers] = useState([]);
   //STATES
 
   const ctx = useContext(ThemeContext);
@@ -50,7 +51,9 @@ function App() {
       const results = await data.results;
       setSearchResult(results);
     };
-    fetchData();
+    if (search !== "") {
+      fetchData();
+    }
   }, [search]);
   //EFFECTS
 
@@ -59,10 +62,12 @@ function App() {
     ? {
         backgroundColor: ctx.dark.backgroundColor,
         color: ctx.dark.color,
+        transition: "background-color 500ms ease-in-out,color 500ms",
       }
     : {
         backgroundColor: ctx.light.backgroundColor,
         color: ctx.light.color,
+        transition: "background-color 500ms ease-in-out,color 500ms",
       };
 
   return (
@@ -73,7 +78,11 @@ function App() {
             path="/"
             element={
               <div className="container">
-                <Nav setSearch={setSearch} setDarkMode={setDarkMode} />
+                <Nav
+                  setSearch={setSearch}
+                  setDarkMode={setDarkMode}
+                  search={search}
+                />
                 <div className="colorContain" style={style}>
                   <div className="title">
                     <h2>
@@ -131,7 +140,11 @@ function App() {
             path="/movies"
             element={
               <div className="container">
-                <Nav setSearch={setSearch} setDarkMode={setDarkMode} />
+                <Nav
+                  setSearch={setSearch}
+                  setDarkMode={setDarkMode}
+                  search={search}
+                />
                 <div className="colorContain" style={style}>
                   <Movies searchResult={searchResult} />
                 </div>
@@ -142,7 +155,11 @@ function App() {
             path="/series"
             element={
               <div className="container">
-                <Nav setSearch={setSearch} setDarkMode={setDarkMode} />
+                <Nav
+                  setSearch={setSearch}
+                  setDarkMode={setDarkMode}
+                  search={search}
+                />
                 <div className="colorContain" style={style}>
                   <Movies searchResult={searchResult} />
                 </div>
@@ -153,7 +170,11 @@ function App() {
             path="/show/:id"
             element={
               <div className="container">
-                <Nav setSearch={setSearch} setDarkMode={setDarkMode} />
+                <Nav
+                  setSearch={setSearch}
+                  setDarkMode={setDarkMode}
+                  search={search}
+                />
                 <div className="colorContain" style={style}>
                   <MovieDetail />
                 </div>

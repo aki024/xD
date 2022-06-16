@@ -115,7 +115,7 @@
 }
 
 .link-active {
-  border-bottom: 4px solid #878787;
+  border-bottom: 2px solid #878787;
 }
 
 .logo img {
@@ -134,13 +134,13 @@
       -ms-flex-direction: column;
           flex-direction: column;
   z-index: 99;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 
 .movieCard:hover {
-  -webkit-transition: -webkit-transform 0.5s ease-in-out;
-  transition: -webkit-transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
   -webkit-transform: scale(105%);
           transform: scale(105%);
   cursor: pointer;
@@ -175,32 +175,6 @@ img {
 .title h3:hover {
   cursor: pointer;
   color: rgba(85, 85, 221, 0.774);
-}
-
-@-webkit-keyframes scale {
-  0% {
-    -webkit-transform: scale(100%);
-            transform: scale(100%);
-    background-color: red;
-  }
-  100% {
-    -webkit-transform: scale(105%);
-            transform: scale(105%);
-    background-color: red;
-  }
-}
-
-@keyframes scale {
-  0% {
-    -webkit-transform: scale(100%);
-            transform: scale(100%);
-    background-color: red;
-  }
-  100% {
-    -webkit-transform: scale(105%);
-            transform: scale(105%);
-    background-color: red;
-  }
 }
 
 .singleMovieContainer {
@@ -377,5 +351,27 @@ a {
 
 a:last-child {
   margin-bottom: 2rem;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #000000 #3b3b3b;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #3b3b3b;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 10px;
+  border: 2px solid #000000;
 }
 /*# sourceMappingURL=App.css.map */

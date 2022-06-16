@@ -2,15 +2,17 @@ import React, { Dispatch, SetStateAction } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../kisspng-art-film-logo-cinema-clip-art-movie-logo-cliparts-5ab587fb2edc64.812960291521846267192.png";
-import DarkModeButton from "./DarkModeButton";
+import DarkModeButton from "./ui/DarkModeButton";
 
 interface Props {
   setSearch: Dispatch<SetStateAction<string | null>>;
   setDarkMode: Dispatch<SetStateAction<boolean>>;
+  search: string | null;
 }
 
-const Nav = ({ setSearch, setDarkMode }: Props) => {
+const Nav = ({ setSearch, setDarkMode, search }: Props) => {
   const scrollToTopHandler = () => {
+    setSearch("");
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -34,6 +36,7 @@ const Nav = ({ setSearch, setDarkMode }: Props) => {
             className="searchInput"
             placeholder="Search for a movie or series..."
             onChange={(e) => setSearch(e.target.value)}
+            value={search!}
           />
         </div>
       </div>
